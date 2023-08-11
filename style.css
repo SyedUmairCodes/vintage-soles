@@ -1,0 +1,388 @@
+/**
+ * This file contains the global styles for the Shoex website. It imports the Montserrat font from Google Fonts
+ * and defines the color variables for the website.
+ */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&display=swap");
+
+:root {
+  --color-bg: #8c8fa1;
+  --color-text: #dce0e8;
+  --color-primary: #89b4fa;
+  --color-lavendar: #b4befe;
+  --color-green: #a6e3a1;
+}
+
+/**
+ * It sets the box-sizing property to border-box for all elements, sets the font family to Montserrat, and sets the line-height to 1.6.
+ * The background color is set using a CSS variable. Images are set to have a maximum width of 100% and are displayed as block elements.
+ * Sections have a padding of 7em on the top and bottom.
+ */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  line-height: 1.6;
+  background: var(--color-bg);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+section {
+  padding: 7em 0;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+/** 
+ * Defines the styles for the navigation bar.
+ * 
+ * .navbar - Defines the main container for the navigation bar.
+ * .navbar__logo - Defines the logo element within the navigation bar.
+ * .navbar__menu - Defines the container for the navigation menu items.
+ * .navbar__item - Defines a single item within the navigation menu.
+ * .navbar__link - Defines the link within a navigation menu item.
+ * .navbar__toggle - Defines the toggle button for the navigation menu on smaller screens.
+ * .navbar__icon - Defines the icon for the navigation menu toggle button.
+ */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-bg);
+  color: white;
+  padding: 1em;
+}
+
+.navbar__logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: white;
+  text-decoration: none;
+}
+
+.navbar__menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar__item {
+  margin: 0 1em;
+}
+
+.navbar__link {
+  text-decoration: none;
+  color: var(--color-text);
+}
+
+.navbar__toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.navbar__icon {
+  display: block;
+  width: 1.5em;
+  height: 1.5em;
+  background-image: url('./img/menu.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.spacing > * + * {
+  margin-top: 2rem;
+}
+
+.container {
+  width: 85%;
+  max-width: 65em;
+  margin: 0 auto;
+}
+
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  padding: 0.5em 1.5em;
+  background: var(--color-primary);
+  color: var(--color-text);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 1.125rem;
+  border-radius: 0.35em;
+  transition: transform 250ms ease-in-out, opacity 250ms linear;
+}
+
+.btn:hover,
+.btn:focus {
+  transform: scale(1.1);
+  opacity: 0.9;
+}
+
+.main-text {
+  font-size: clamp(3rem, calc(5vh+1rem), 4.5rem);
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.section-title {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: clamp(2.5rem, 5vh, 4rem);
+  color: white;
+  margin-bottom: 5rem;
+}
+
+.subtitle{
+  font-weight: 700;
+  font-style: bolder;
+}
+
+.hero {
+  color: var(--color-text);
+  text-align: center;
+  padding: 15em 0;
+  background: url("./img/hero.jpg");
+  background-blend-mode: multiply;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.split {
+  display: flex;
+  gap: 1em;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.split > * {
+  flex-basis: 30%;
+  min-width: 15em;
+}
+
+.featured__item {
+  display: block;
+  position: relative;
+  transform: scale(0.85);
+  transition: transform 250ms ease-in-out;
+  text-decoration: none;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.featured__item:hover,
+.featured__item:focus {
+  transform: scale(1);
+}
+
+.featured__details {
+  opacity: 0;
+}
+
+.featured__item:hover .featured__details,
+.featured__item:focus .featured__details {
+  opacity: 1;
+}
+
+.featured__item::after {
+  content: "";
+  position: absolute;
+  padding: 100% 100% 0 0;
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+  background: var(--color-lavendar);
+  z-index: -1;
+}
+
+.product {
+  background: var(--color-lavendar);
+  padding: 3em;
+  border-radius: 1em;
+  margin-bottom: 5em;
+  text-align: center;
+}
+
+.product__title {
+  font-size: clamp(3rem, calc(5vw+1rem), 5.5rem);
+  text-transform: uppercase;
+  line-height: 1;
+  color: var(--color-text);
+}
+
+.product__img {
+  margin: -6em 0 0 0;
+}
+
+.footer {
+  background-color: black;
+  color: white;
+  padding: 2em;
+  text-align: center;
+}
+
+.footer__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.footer__text {
+  margin: 0;
+}
+
+.footer__links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.footer__links li {
+  margin: 0 1em;
+}
+
+.footer__links a {
+  color: white;
+  text-decoration: none;
+}
+
+/**
+ * This media query targets screens with a minimum width of 45em (720px).
+ * It applies the following styles to elements with the class "product":
+ *   - Aligns text to the left
+ *   - Adds a bottom margin of 9em
+ * 
+ * It also applies the following styles to elements with the class "product__title":
+ *   - Removes any margin
+ * 
+ * It applies the following styles to elements with the class "product__img":
+ *   - Floats the element to the right
+ *   - Sets the width to 50%
+ *   - Shapes the element around the image specified in the URL
+ *   - Adds a negative margin of 5em to the right
+ * 
+ * If the element also has the class "shoe-left", it applies the following additional styles:
+ *   - Shapes the element around a different image specified in the URL
+ *   - Floats the element to the left
+ *   - Adds a negative margin of 5em to the left
+ *   - Adds a shape margin of 3rem
+ */
+
+@media (min-width: 45em) {
+  .product {
+    text-align: left;
+    margin-bottom: 9em;
+  }
+  .product__title {
+    margin: 0;
+  }
+  .product__img {
+    float: right;
+    width: 50%;
+    shape-outside: url(../img/shoe-1.png);
+    margin-right: -5em;
+  }
+  .product.shoe-left .product__img {
+    shape-outside: url(../img/shoe-2.png);
+    float: left;
+    margin-left: -5em;
+    shape-margin: 3rem;
+  }
+}
+
+/* Media queries */
+@media screen and (max-width: 768px) {
+  .footer__content {
+    flex-direction: column;
+  }
+
+  .footer__links {
+    margin-top: 1em;
+  }
+
+  .footer__links li {
+    margin: 0.5em;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .footer__text {
+    font-size: 1rem;
+  }
+
+  .footer__links li {
+    margin: 0.1em;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .navbar__logo {
+    font-size: 1.2rem;
+  }
+
+  .navbar__toggle {
+    display: block;
+  }
+
+  .navbar__menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    padding: 1em;
+  }
+
+  .navbar__item {
+    margin: 0.5em 0;
+  }
+
+  .navbar__toggle:focus .navbar__menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar__icon {
+    background-image: url('./img/menu.png');
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .split {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .split > * {
+    flex-basis: 100%;
+    min-width: auto;
+    margin-bottom: 1em;
+  }
+  .split > *:nth-child(2) {
+    margin-right: 1em;
+  }
+}
